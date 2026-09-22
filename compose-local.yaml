@@ -56,7 +56,7 @@ services:
         ports:
             - 8080:8080
         depends_on:
-            - inventory
+            - inventory-service
             - jms
         restart: on-failure
         environment:
@@ -92,7 +92,7 @@ services:
         ports:
             - 9090:9090
         depends_on:
-            - inventory
+            - inventory-service
             - beer-service
             - order-service
             - inventory-failover
@@ -100,17 +100,3 @@ services:
         labels:
             collect_logs_with_filebeat: "true"
             decode_log_event_to_json_object: "true"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
