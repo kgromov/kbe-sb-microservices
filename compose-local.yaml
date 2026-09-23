@@ -18,6 +18,9 @@ services:
         restart: on-failure
         depends_on:
             - elasticsearch
+    # it's required to change ownership to root explicitly:
+    # sudo chown root:root filebeat.docker.yml
+    # sudo chmod go-w filebeat.docker.yml
     filebeat:
         image: docker.elastic.co/beats/filebeat:7.12.1
         volumes:
