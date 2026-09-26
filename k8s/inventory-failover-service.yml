@@ -1,7 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: inventory-failover
+  name: inventory-failover
+spec:
+  ports:
+  - name: 8083-8083
+    port: 8083
+    protocol: TCP
+    targetPort: 8083
+  selector:
+    app: inventory-failover
+  type: ClusterIP
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
     app: inventory-failover
   name: inventory-failover
@@ -23,7 +39,6 @@ spec:
         co.elastic.logs.json-logging/json.message_key: "message"
     spec:
       containers:
-      - image: springframeworkguru/kbe-brewery-inventory-failover
-        name: kbe-brewery-inventory-failover
-        resources: {}
-status: {}
+        - image: springframeworkguru/kbe-brewery-inventory-failover
+          name: kbe-brewery-inventory-failover
+          resources: {}
