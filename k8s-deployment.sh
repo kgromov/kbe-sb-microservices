@@ -13,4 +13,5 @@ kubectl apply -f ./k8s/inventory-failover-service.yml
 kubectl apply -f ./k8s/inventory-service.yml
 kubectl apply -f ./k8s/beer-service.yml
 kubectl apply -f ./k8s/order-service.yml
-kubectl apply -f ./k8s/gateway-service.yml
+#kubectl apply -f ./k8s/gateway-service.yml
+kubectl apply -f ./k8s/ingress-deployment.yml
